@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalcVerse — All-in-One Calculator Suite</title>
+  <meta name="description" content="A beautiful, calm-colored multi-tool calculator suite with 8 tools: Standard Calculator, Scientific, Unit Converter, Age Calculator, BMI, Tip Calculator, Loan Calculator, and Color Converter.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ══════════════════════════════════════════════
+       SIDEBAR NAVIGATION
+  ══════════════════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">CalcVerse</span>
+      </div>
+      <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">✕</button>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-btn active" data-tool="standard">
+        <span class="nav-icon">🧮</span>
+        <span class="nav-label">Standard</span>
+      </button>
+      <button class="nav-btn" data-tool="scientific">
+        <span class="nav-icon">🔬</span>
+        <span class="nav-label">Scientific</span>
+      </button>
+      <button class="nav-btn" data-tool="converter">
+        <span class="nav-icon">🔄</span>
+        <span class="nav-label">Unit Converter</span>
+      </button>
+      <button class="nav-btn" data-tool="age">
+        <span class="nav-icon">🎂</span>
+        <span class="nav-label">Age Calculator</span>
+      </button>
+      <button class="nav-btn" data-tool="bmi">
+        <span class="nav-icon">⚖️</span>
+        <span class="nav-label">BMI Calculator</span>
+      </button>
+      <button class="nav-btn" data-tool="tip">
+        <span class="nav-icon">💰</span>
+        <span class="nav-label">Tip Calculator</span>
+      </button>
+      <button class="nav-btn" data-tool="loan">
+        <span class="nav-icon">🏦</span>
+        <span class="nav-label">Loan Calculator</span>
+      </button>
+      <button class="nav-btn" data-tool="color">
+        <span class="nav-icon">🎨</span>
+        <span class="nav-label">Color Converter</span>
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-icon-light">☀️</span>
+        <span class="theme-icon-dark">🌙</span>
+        <span class="theme-label">Toggle Theme</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════════════════════
+       MAIN CONTENT AREA
+  ══════════════════════════════════════════════ -->
+  <main class="main-content">
+    <header class="topbar">
+      <button class="hamburger" id="hamburger" aria-label="Open sidebar">
+        <span></span><span></span><span></span>
+      </button>
+      <h1 class="topbar-title" id="topbar-title">Standard Calculator</h1>
+      <div class="topbar-actions">
+        <button class="theme-toggle-mobile" id="theme-toggle-mobile" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <div class="tools-container">
+
+      <!-- ─── STANDARD CALCULATOR ─── -->
+      <section class="tool-panel active" id="tool-standard">
+        <div class="calc-card">
+          <div class="calc-display">
+            <div class="calc-history" id="std-history"></div>
+            <div class="calc-current" id="std-display">0</div>
+          </div>
+          <div class="calc-keypad">
+            <button class="key key-fn" data-action="clear">AC</button>
+            <button class="key key-fn" data-action="toggle-sign">±</button>
+            <button class="key key-fn" data-action="percent">%</button>
+            <button class="key key-op" data-action="÷">÷</button>
+
+            <button class="key key-num" data-action="7">7</button>
+            <button class="key key-num" data-action="8">8</button>
+            <button class="key key-num" data-action="9">9</button>
+            <button class="key key-op" data-action="×">×</button>
+
+            <button class="key key-num" data-action="4">4</button>
+            <button class="key key-num" data-action="5">5</button>
+            <button class="key key-num" data-action="6">6</button>
+            <button class="key key-op" data-action="-">−</button>
+
+            <button class="key key-num" data-action="1">1</button>
+            <button class="key key-num" data-action="2">2</button>
+            <button class="key key-num" data-action="3">3</button>
+            <button class="key key-op" data-action="+">+</button>
+
+            <button class="key key-num key-wide" data-action="0">0</button>
+            <button class="key key-num" data-action=".">.</button>
+            <button class="key key-eq" data-action="=">=</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── SCIENTIFIC CALCULATOR ─── -->
+      <section class="tool-panel" id="tool-scientific">
+        <div class="calc-card calc-card-wide">
+          <div class="calc-display">
+            <div class="calc-history" id="sci-history"></div>
+            <div class="calc-current" id="sci-display">0</div>
+          </div>
+          <div class="calc-keypad scientific-keypad">
+            <button class="key key-sci" data-action="sin">sin</button>
+            <button class="key key-sci" data-action="cos">cos</button>
+            <button class="key key-sci" data-action="tan">tan</button>
+            <button class="key key-sci" data-action="log">log</button>
+            <button class="key key-sci" data-action="ln">ln</button>
+
+            <button class="key key-sci" data-action="sqrt">√</button>
+            <button class="key key-sci" data-action="pow">x²</button>
+            <button class="key key-sci" data-action="cube">x³</button>
+            <button class="key key-sci" data-action="pi">π</button>
+            <button class="key key-sci" data-action="e">e</button>
+
+            <button class="key key-sci" data-action="(">(</button>
+            <button class="key key-sci" data-action=")">)</button>
+            <button class="key key-fn" data-action="clear">AC</button>
+            <button class="key key-fn" data-action="backspace">⌫</button>
+            <button class="key key-op" data-action="÷">÷</button>
+
+            <button class="key key-sci" data-action="fact">n!</button>
+            <button class="key key-num" data-action="7">7</button>
+            <button class="key key-num" data-action="8">8</button>
+            <button class="key key-num" data-action="9">9</button>
+            <button class="key key-op" data-action="×">×</button>
+
+            <button class="key key-sci" data-action="inv">1/x</button>
+            <button class="key key-num" data-action="4">4</button>
+            <button class="key key-num" data-action="5">5</button>
+            <button class="key key-num" data-action="6">6</button>
+            <button class="key key-op" data-action="-">−</button>
+
+            <button class="key key-sci" data-action="abs">|x|</button>
+            <button class="key key-num" data-action="1">1</button>
+            <button class="key key-num" data-action="2">2</button>
+            <button class="key key-num" data-action="3">3</button>
+            <button class="key key-op" data-action="+">+</button>
+
+            <button class="key key-sci" data-action="exp">EXP</button>
+            <button class="key key-num key-wide" data-action="0">0</button>
+            <button class="key key-num" data-action=".">.</button>
+            <button class="key key-eq" data-action="=">=</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── UNIT CONVERTER ─── -->
+      <section class="tool-panel" id="tool-converter">
+        <div class="form-card">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select class="form-select" id="conv-category">
+              <option value="temperature">🌡️ Temperature</option>
+              <option value="length">📏 Length</option>
+              <option value="weight">⚖️ Weight</option>
+              <option value="speed">🚀 Speed</option>
+              <option value="data">💾 Digital Storage</option>
+            </select>
+          </div>
+          <div class="converter-row">
+            <div class="converter-col">
+              <label class="form-label">From</label>
+              <input type="number" class="form-input" id="conv-from-val" value="1" step="any">
+              <select class="form-select" id="conv-from-unit"></select>
+            </div>
+            <button class="swap-btn" id="conv-swap" aria-label="Swap units">⇄</button>
+            <div class="converter-col">
+              <label class="form-label">To</label>
+              <input type="number" class="form-input" id="conv-to-val" readonly>
+              <select class="form-select" id="conv-to-unit"></select>
+            </div>
+          </div>
+          <div class="conv-formula" id="conv-formula"></div>
+        </div>
+      </section>
+
+      <!-- ─── AGE CALCULATOR ─── -->
+      <section class="tool-panel" id="tool-age">
+        <div class="form-card">
+          <div class="form-group">
+            <label class="form-label">Your Date of Birth</label>
+            <input type="date" class="form-input" id="age-dob">
+          </div>
+          <button class="form-btn" id="age-calc-btn">Calculate Age</button>
+          <div class="result-cards" id="age-results" style="display:none">
+            <div class="result-card">
+              <span class="result-value" id="age-years">0</span>
+              <span class="result-label">Years</span>
+            </div>
+            <div class="result-card">
+              <span class="result-value" id="age-months">0</span>
+              <span class="result-label">Months</span>
+            </div>
+            <div class="result-card">
+              <span class="result-value" id="age-days">0</span>
+              <span class="result-label">Days</span>
+            </div>
+            <div class="result-card accent">
+              <span class="result-value" id="age-next-bday">0</span>
+              <span class="result-label">Days until next birthday</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── BMI CALCULATOR ─── -->
+      <section class="tool-panel" id="tool-bmi">
+        <div class="form-card">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Height (cm)</label>
+              <input type="number" class="form-input" id="bmi-height" value="170" min="50" max="300">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Weight (kg)</label>
+              <input type="number" class="form-input" id="bmi-weight" value="70" min="10" max="500">
+            </div>
+          </div>
+          <button class="form-btn" id="bmi-calc-btn">Calculate BMI</button>
+          <div class="bmi-result" id="bmi-result" style="display:none">
+            <div class="bmi-gauge">
+              <div class="bmi-gauge-fill" id="bmi-gauge-fill"></div>
+              <div class="bmi-gauge-needle" id="bmi-gauge-needle"></div>
+            </div>
+            <div class="bmi-labels">
+              <span class="bmi-cat underweight">Underweight</span>
+              <span class="bmi-cat normal">Normal</span>
+              <span class="bmi-cat overweight">Overweight</span>
+              <span class="bmi-cat obese">Obese</span>
+            </div>
+            <div class="bmi-value-display">
+              <span class="bmi-number" id="bmi-number">0</span>
+              <span class="bmi-status" id="bmi-status"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── TIP CALCULATOR ─── -->
+      <section class="tool-panel" id="tool-tip">
+        <div class="form-card">
+          <div class="form-group">
+            <label class="form-label">Bill Amount</label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">$</span>
+              <input type="number" class="form-input" id="tip-bill" value="50" min="0" step="0.01">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tip Percentage</label>
+            <div class="tip-presets">
+              <button class="tip-preset" data-tip="10">10%</button>
+              <button class="tip-preset active" data-tip="15">15%</button>
+              <button class="tip-preset" data-tip="18">18%</button>
+              <button class="tip-preset" data-tip="20">20%</button>
+              <button class="tip-preset" data-tip="25">25%</button>
+            </div>
+            <input type="range" class="form-range" id="tip-percent" min="0" max="50" value="15">
+            <div class="range-value" id="tip-percent-label">15%</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Split Between</label>
+            <div class="stepper">
+              <button class="stepper-btn" id="tip-split-dec">−</button>
+              <span class="stepper-value" id="tip-split">1</span>
+              <button class="stepper-btn" id="tip-split-inc">+</button>
+            </div>
+          </div>
+          <div class="tip-results">
+            <div class="tip-result-row">
+              <span>Tip Amount</span>
+              <span class="tip-val" id="tip-amount">$7.50</span>
+            </div>
+            <div class="tip-result-row">
+              <span>Total</span>
+              <span class="tip-val" id="tip-total">$57.50</span>
+            </div>
+            <div class="tip-result-row highlight">
+              <span>Per Person</span>
+              <span class="tip-val" id="tip-per-person">$57.50</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── LOAN CALCULATOR ─── -->
+      <section class="tool-panel" id="tool-loan">
+        <div class="form-card">
+          <div class="form-group">
+            <label class="form-label">Loan Amount</label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">$</span>
+              <input type="number" class="form-input" id="loan-amount" value="250000" min="0">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Interest Rate (%)</label>
+              <input type="number" class="form-input" id="loan-rate" value="6.5" min="0" max="100" step="0.1">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Term (Years)</label>
+              <input type="number" class="form-input" id="loan-term" value="30" min="1" max="50">
+            </div>
+          </div>
+          <button class="form-btn" id="loan-calc-btn">Calculate</button>
+          <div class="loan-results" id="loan-results" style="display:none">
+            <div class="result-cards">
+              <div class="result-card">
+                <span class="result-value" id="loan-monthly">$0</span>
+                <span class="result-label">Monthly Payment</span>
+              </div>
+              <div class="result-card">
+                <span class="result-value" id="loan-total-payment">$0</span>
+                <span class="result-label">Total Payment</span>
+              </div>
+              <div class="result-card accent">
+                <span class="result-value" id="loan-total-interest">$0</span>
+                <span class="result-label">Total Interest</span>
+              </div>
+            </div>
+            <div class="loan-chart">
+              <div class="loan-bar">
+                <div class="loan-bar-principal" id="loan-bar-principal"></div>
+                <div class="loan-bar-interest" id="loan-bar-interest"></div>
+              </div>
+              <div class="loan-chart-legend">
+                <span class="legend-item"><span class="legend-dot principal"></span>Principal</span>
+                <span class="legend-item"><span class="legend-dot interest"></span>Interest</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── COLOR CONVERTER ─── -->
+      <section class="tool-panel" id="tool-color">
+        <div class="form-card">
+          <div class="color-preview-box">
+            <div class="color-preview" id="color-preview"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">HEX</label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">#</span>
+              <input type="text" class="form-input" id="color-hex" value="6C9BCF" maxlength="6" spellcheck="false">
+            </div>
+          </div>
+          <div class="form-row triple">
+            <div class="form-group">
+              <label class="form-label">R</label>
+              <input type="number" class="form-input" id="color-r" value="108" min="0" max="255">
+            </div>
+            <div class="form-group">
+              <label class="form-label">G</label>
+              <input type="number" class="form-input" id="color-g" value="155" min="0" max="255">
+            </div>
+            <div class="form-group">
+              <label class="form-label">B</label>
+              <input type="number" class="form-input" id="color-b" value="207" min="0" max="255">
+            </div>
+          </div>
+          <div class="form-row triple">
+            <div class="form-group">
+              <label class="form-label">H</label>
+              <input type="number" class="form-input" id="color-h" value="212" min="0" max="360">
+            </div>
+            <div class="form-group">
+              <label class="form-label">S%</label>
+              <input type="number" class="form-input" id="color-s" value="48" min="0" max="100">
+            </div>
+            <div class="form-group">
+              <label class="form-label">L%</label>
+              <input type="number" class="form-input" id="color-l" value="62" min="0" max="100">
+            </div>
+          </div>
+          <button class="form-btn" id="color-copy-btn">📋 Copy All Values</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="overlay" id="overlay"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
