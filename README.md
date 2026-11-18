@@ -56,7 +56,7 @@ Real-time conversion between HEX, RGB, and HSL color formats with live preview a
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/calcverse.git
+   git clone https://github.com/vaidiksingh54-web/all-in-one-calculator.git
    ```
 
 2. **Open in browser**
