@@ -72,11 +72,14 @@ No build steps. No npm install. No bundler. Just open and use.
 ## 📁 Project Structure
 
 ```
-calcverse/
-├── index.html      # Semantic HTML with all 8 tool panels
-├── style.css       # Complete design system with CSS custom properties
-├── app.js          # All calculator logic (safe math parser, no eval)
-└── README.md
+all-in-one-calculator/
+├── calculator/
+│   ├── index.html    # Semantic HTML with all 8 tool panels
+│   ├── style.css     # Complete design system with CSS custom properties
+│   └── app.js        # All calculator logic (safe math parser, no eval)
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
 
 ## 🛠️ Tech Stack
