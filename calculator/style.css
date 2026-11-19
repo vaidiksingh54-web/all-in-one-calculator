@@ -509,7 +509,7 @@ body {
 
 /* ─── 3D Recessed Display Screen ─── */
 .calc-display {
-  padding: 1.75rem 1.75rem 1.25rem;
+  padding: 1.25rem 1.75rem 1.25rem;
   min-height: 125px;
   display: flex;
   flex-direction: column;
@@ -519,9 +519,48 @@ body {
   border-bottom: 1px solid var(--glass-border-subtle);
   box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.08);
   position: relative;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.calc-display:hover {
+  background: linear-gradient(180deg, rgba(108, 155, 207, 0.18) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.calc-display-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.copy-display-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.45rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  opacity: 0.7;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.copy-display-btn:hover {
+  opacity: 1;
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: scale(1.1);
+}
+.calc-display:hover .copy-display-btn {
+  opacity: 1;
 }
 
 .calc-history {
+  flex: 1;
   font-size: 0.88rem;
   color: var(--text-muted);
   min-height: 1.25em;
@@ -1282,4 +1321,54 @@ body {
 ::selection {
   background: var(--accent-soft);
   color: var(--accent);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   3D GLASS TOAST NOTIFICATION
+   ═══════════════════════════════════════════════════════════ */
+.toast-container {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.toast-message {
+  pointer-events: auto;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast-message.toast-out {
+  opacity: 0;
+  transform: translateY(12px) scale(0.95);
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

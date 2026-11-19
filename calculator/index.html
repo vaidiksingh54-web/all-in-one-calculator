@@ -89,8 +89,11 @@
       <!-- ─── STANDARD CALCULATOR ─── -->
       <section class="tool-panel active" id="tool-standard">
         <div class="calc-card">
-          <div class="calc-display">
-            <div class="calc-history" id="std-history"></div>
+          <div class="calc-display" data-copy-target="std-display" title="Click to copy result">
+            <div class="calc-display-header">
+              <div class="calc-history" id="std-history"></div>
+              <button class="copy-display-btn" aria-label="Copy result" title="Copy result">📋</button>
+            </div>
             <div class="calc-current" id="std-display">0</div>
           </div>
           <div class="calc-keypad">
@@ -124,8 +127,11 @@
       <!-- ─── SCIENTIFIC CALCULATOR ─── -->
       <section class="tool-panel" id="tool-scientific">
         <div class="calc-card calc-card-wide">
-          <div class="calc-display">
-            <div class="calc-history" id="sci-history"></div>
+          <div class="calc-display" data-copy-target="sci-display" title="Click to copy result">
+            <div class="calc-display-header">
+              <div class="calc-history" id="sci-history"></div>
+              <button class="copy-display-btn" aria-label="Copy result" title="Copy result">📋</button>
+            </div>
             <div class="calc-current" id="sci-display">0</div>
           </div>
           <div class="calc-keypad scientific-keypad">
@@ -409,6 +415,9 @@
 
     </div>
   </main>
+
+  <!-- 3D Glass Floating Toast Notification -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
   <div class="overlay" id="overlay"></div>
 

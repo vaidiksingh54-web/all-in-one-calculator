@@ -40,6 +40,9 @@ Real-time conversion between HEX, RGB, and HSL color formats with live preview a
 
 ## 🎨 Design Philosophy
 
+- **3D Glassmorphism** — Translucent frosted glass cards, dynamic backdrop blur (`backdrop-filter`), and floating ambient glowing orbs
+- **Tactile 3D Buttons & Mouse Tilt** — Interactive 3D perspective tilt on hover, realistic button depression, and bevel shadows
+- **Click-to-Copy Result** — Click any calculator display or result to instantly copy with a glass toast notification
 - **Calm Ocean Color Palette** — Soft blues, sage greens, gentle lavenders, and warm rose tones
 - **Dark & Light Themes** — Smooth theme toggle with localStorage persistence
 - **Responsive Design** — Works beautifully on desktop, tablet, and mobile

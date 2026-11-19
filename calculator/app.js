@@ -188,6 +188,19 @@
     return str;
   }
 
+  function showToast(msg) {
+    const container = $('#toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast-message';
+    toast.innerHTML = msg;
+    container.appendChild(toast);
+    setTimeout(() => {
+      toast.classList.add('toast-out');
+      setTimeout(() => toast.remove(), 300);
+    }, 2200);
+  }
+
 
   // ═══════════════════════════════════════════════════════════
   // STANDARD CALCULATOR
@@ -790,6 +803,7 @@
       const text = `HEX: #${hexEl.value}\nRGB: rgb(${rEl.value}, ${gEl.value}, ${bEl.value})\nHSL: hsl(${hEl.value}, ${sEl.value}%, ${lEl.value}%)`;
       navigator.clipboard.writeText(text).then(() => {
         copyBtn.textContent = '✓ Copied!';
+        showToast('🎨 Copied HEX, RGB & HSL to clipboard!');
         setTimeout(() => copyBtn.textContent = '📋 Copy All Values', 2000);
       }).catch(() => {
         copyBtn.textContent = 'Copy failed';
@@ -799,6 +813,29 @@
 
     // Initial
     fromHex();
+  })();
+
+
+  // ═══════════════════════════════════════════════════════════
+  // DISPLAY CLICK-TO-COPY WITH 3D TOAST
+  // ═══════════════════════════════════════════════════════════
+  (function initDisplayCopy() {
+    const displays = $$('.calc-display[data-copy-target]');
+    displays.forEach(display => {
+      display.addEventListener('click', (e) => {
+        const targetId = display.getAttribute('data-copy-target');
+        const targetEl = document.getElementById(targetId);
+        if (!targetEl) return;
+        const text = targetEl.textContent.trim();
+        if (!text || text === 'Error') return;
+
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(`📋 Copied <strong>${text}</strong> to clipboard!`);
+        }).catch(() => {
+          showToast(`Failed to copy`);
+        });
+      });
+    });
   })();
 
 
